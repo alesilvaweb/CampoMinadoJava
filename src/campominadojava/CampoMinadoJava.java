@@ -16,6 +16,9 @@ public class CampoMinadoJava {
      */
     public static void main(String[] args) {
        
+        Jogo j = new Jogo(8);
+        
+        j.novajogada(1, 3);
         
     }
     

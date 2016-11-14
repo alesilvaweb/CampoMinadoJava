@@ -13,6 +13,7 @@ public class Jogo extends Tabuleiro implements Jogar{
 
     public Jogo(int tamanho) {
         super(tamanho);
+        imprimeTabuleiroInicial();
     }
 
     @Override

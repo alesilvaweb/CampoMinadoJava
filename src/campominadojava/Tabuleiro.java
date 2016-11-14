@@ -9,7 +9,7 @@ package campominadojava;
  *
  * @author alessandros
  */
-public class Tabuleiro {
+public class Tabuleiro{
     protected Celula tab[][];
 
     public Tabuleiro(int tamanho) {
@@ -19,5 +19,10 @@ public class Tabuleiro {
     public void insereNoTabuleiro(Celula celula,int x, int y){
         this.tab[x][y] = celula;
     }
+
+    public Celula getTab(Celula celula,int x, int y){
+        return tab[x][y];
+    }
+   
     
 }
