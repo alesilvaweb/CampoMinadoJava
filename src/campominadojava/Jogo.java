@@ -9,11 +9,7 @@ package campominadojava;
  *
  * @author alessandros
  */
-public class MinaBombaPesada extends Celula{
-    
-    public MinaBombaPesada(String tipo, String icon, int valor) {
-        super(tipo, icon, valor);
-    }
+public class Jogo implements Jogar{
     
     
     

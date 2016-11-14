@@ -11,6 +11,10 @@ package campominadojava;
  */
 public class MinaVazia extends Celula{
     
+    public MinaVazia(String tipo, String icon, int valor) {
+        super(tipo, icon, valor);
+    }
+    
     
     
 }

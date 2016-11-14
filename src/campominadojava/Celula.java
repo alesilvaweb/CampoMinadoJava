@@ -13,8 +13,13 @@ public abstract class  Celula {
     private String tipo;
     private String icon;
     private int    valor;
-    
-    
+
+    public Celula(String tipo, String icon, int valor) {
+        this.tipo = tipo;
+        this.icon = icon;
+        this.valor = valor;
+    }
+
     public String getTipo() {
         return tipo;
     }

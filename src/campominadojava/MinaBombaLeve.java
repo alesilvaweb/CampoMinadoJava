@@ -10,6 +10,12 @@ package campominadojava;
  * @author alessandros
  */
 public class MinaBombaLeve extends Celula{
+
+    public MinaBombaLeve(String tipo, String icon, int valor) {
+        super(tipo, icon, valor);
+    }
+
+   
     
     
     
