@@ -9,6 +9,7 @@ package campominadojava;
  *
  * @author alessandros
  */
+
 public class MinaVazia extends Celula{
     
     public MinaVazia(String tipo, String icon, int valor) {

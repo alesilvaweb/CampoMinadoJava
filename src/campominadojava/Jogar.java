@@ -9,8 +9,8 @@ package campominadojava;
  *
  * @author alessandros
  */
-public interface Jogar {
+public interface Jogar{
     
-    
+    public void novajogada(int x,int y);
     
 }

@@ -11,6 +11,7 @@ package campominadojava;
  */
 public class MinaBombaPesada extends Celula{
     
+    
     public MinaBombaPesada(String tipo, String icon, int valor) {
         super(tipo, icon, valor);
     }

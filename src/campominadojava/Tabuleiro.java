@@ -10,10 +10,14 @@ package campominadojava;
  * @author alessandros
  */
 public class Tabuleiro {
-    private Celula tab[][];
+    protected Celula tab[][];
 
     public Tabuleiro(int tamanho) {
         this.tab = new Celula[tamanho][tamanho];
     }
-      
+    
+    public void insereNoTabuleiro(Celula celula,int x, int y){
+        this.tab[x][y] = celula;
+    }
+    
 }
