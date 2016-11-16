@@ -43,6 +43,11 @@ public abstract class  Celula {
     public void setValor(int valor) {
         this.valor = valor;
     }
+
+    @Override
+    public String toString() {
+        return   icon ;
+    }
     
     
 }

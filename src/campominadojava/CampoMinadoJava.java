@@ -18,7 +18,10 @@ public class CampoMinadoJava {
        
         Jogo j = new Jogo(8);
         
-        j.novajogada(1, 3);
+        //j.novajogada(1, 3);
+       
+        j.insereNovoTabuleiro();
+        j.imprimeTabuleiro();
         
     }
     

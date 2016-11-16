@@ -18,9 +18,16 @@ public class Jogo extends Tabuleiro implements Jogar{
 
     @Override
     public void novajogada(int x, int y) {
-       
+//        for (int i = 0; i < tab.length; i++) {
+//            for (int j = 0; j < tab.length; j++) {
+//                    System.out.println("Pesado");
+//                }
+//                
+//            }
+//            
+        }
     }
     
     
     
-}
+
