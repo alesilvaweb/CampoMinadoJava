@@ -8,9 +8,35 @@ import java.util.Random;
  */
 public class Tabuleiro{
     protected Celula tab[][];
+    private int vida;
+    private int tentativa;
 
+    
     public Tabuleiro(int tamanho) {
         this.tab = new Celula[tamanho][tamanho];
+        this.vida = 5;
+        this.tentativa = 0;
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+
+    public int getTentativa() {
+        return tentativa;
+    }
+
+    public void setTentativa(int tentativa) {
+        this.tentativa = tentativa;
+    }
+    
+    public void editaTabuleiro(String str,int x,int y){
+        this.tab[x][y].setIcon(str);
+                
     }
     
     public void insereNoTabuleiro(Celula celula,int x, int y){
@@ -20,15 +46,13 @@ public class Tabuleiro{
     public void insereNovoTabuleiro(){
          int bL = calculaTotalBombaLeve();
          int bP = calculaTotalBombas()-bL;
-         int x ;
-         int y;
+         int x ,y;
          Random r = new Random();
-         
          MinaBombaPesada pesada = new MinaBombaPesada("Pesada", "P", 2);
          MinaBombaLeve leve = new MinaBombaLeve("Leve", "L", 1);
          MinaVazia vazia = new MinaVazia("Vazia", "-", 0);
            
-                   for (int i = 0; i < bP; i++) {
+                   for (int i = 0; i < bP; i++) {//Insere Bombas pesadas
                    x = r.nextInt(tab.length);
                    y = r.nextInt(tab.length); 
                         if(tab[x][y]==null){
@@ -37,7 +61,7 @@ public class Tabuleiro{
                             i--;
                         }
                    }
-                       for (int i = 0; i < bL; i++) {
+                       for (int i = 0; i < bL; i++) { //Insere Bombas Leves
                             x = r.nextInt(tab.length);
                             y = r.nextInt(tab.length); 
                                 if(tab[x][y]==null){
@@ -46,7 +70,7 @@ public class Tabuleiro{
                                     i--;
                                 }
                        }
-                       for (int i = 0; i < tab.length; i++) {
+                       for (int i = 0; i < tab.length; i++) {//Insere Campos vazios
                            for (int j = 0; j < tab.length; j++) {
                                  if(tab[i][j]==null){
                                 insereNoTabuleiro(vazia, i, j);     
