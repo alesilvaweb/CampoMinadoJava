@@ -32,27 +32,67 @@ public class Jogo extends Tabuleiro implements Jogar{
         setTentativa(getTentativa()+1);  
         System.out.println("");
         }
+        public int buscaLinhaesquerda(int x,int y){
+            int n=0;
+            for (int i = y;tab[x][i].toString()=="-"||i==tab.length||i==0; i++){ 
+               n++;   
+            }
+            return n;
+        }
+        
+        public int buscaLinhaDireita(int x,int y){
+            int n=0;
+            
+                for (int i = y; tab[x][i].toString()=="-"||i==tab.length||i==1; i--) { 
+               n++;  
+            
+            }
+            return n;
+        }
+        public int buscaColunaAbaixo(int x,int y){
+            int n=0;
+            for (int i = y; tab[i][y].toString()=="-"||i==tab.length||i==0; i++) { 
+               n++;   
+            }
+            return n;
+        }
+        public int buscaColunaAcima(int x,int y){
+            int n=0;
+            for (int i = x; tab[i][y].toString()=="-"||i==tab.length||i==0; i--) { 
+               n++;   
+            }
+            return n;
+        }
+        public int buscaDiagonalPrincipalDireita(int x,int y){
+            int n=0;
+            for (int i = x; tab[x][y].toString()=="-"||i==tab.length||i==0; i++) { 
+               n++;   
+            }
+            return n;
+        }
+        public int buscacoDiagonalPrincipalEsquerda(int x,int y){
+            int n=0;
+            for (int i = x; tab[x][i].toString()=="-"||i==0; i++) { 
+               n++;   
+            }
+            return n;
+        }
 
         private void buscarVizinhos(int x, int y) {
-            int n =0;
-            for (int i = x; tab[x][i].toString()=="-"; i++) {
+          
+            
+                System.out.println("Direita-> "+buscaLinhaesquerda(x, y));
                 
-                System.out.println("-> "+tab[x][i]);
+            
+                 System.out.println("");
+            
                 
-            }
-            System.out.println("");
-             for (int i = x;tab[x][i].toString()=="-"; i++) {
-                
-                System.out.println("->  "+tab[i][y]);
+                System.out.println("Esquerda->  "+buscaLinhaDireita(x, y));
              
-            }
-             System.out.println("");
-             for (int i = x;tab[x][i].toString()=="-"; i++) {
-               
-                    
-                System.out.println("->   "+tab[x][i]);
-                 x++;
-            }
+           
+                 System.out.println("");
+           
+                 System.out.println("Baixo->  "+buscaColunaAbaixo(x, y));
              System.out.println("");
         }
   
