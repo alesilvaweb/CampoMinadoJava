@@ -34,7 +34,7 @@ public class Jogo extends Tabuleiro implements Jogar{
         }
         public int buscaLinhaesquerda(int x,int y){
             int n=0;
-            for (int i = y;tab[x][i].toString()=="-"||i==tab.length||i==0; i++){ 
+            for (int i = y;tab[x][i].toString()=="-"&&i<tab.length-1; i++){ 
                n++;   
             }
             return n;
@@ -43,7 +43,7 @@ public class Jogo extends Tabuleiro implements Jogar{
         public int buscaLinhaDireita(int x,int y){
             int n=0;
             
-                for (int i = y; tab[x][i].toString()=="-"||i==tab.length||i==1; i--) { 
+                for (int i = y; tab[x][i].toString()=="-"&&i>0; i--) { 
                n++;  
             
             }
@@ -51,28 +51,32 @@ public class Jogo extends Tabuleiro implements Jogar{
         }
         public int buscaColunaAbaixo(int x,int y){
             int n=0;
-            for (int i = y; tab[i][y].toString()=="-"||i==tab.length||i==0; i++) { 
+            for (int i = x; tab[i][y].toString()=="-"&&i<=tab.length-1; i++) { 
                n++;   
             }
             return n;
         }
         public int buscaColunaAcima(int x,int y){
             int n=0;
-            for (int i = x; tab[i][y].toString()=="-"||i==tab.length||i==0; i--) { 
+            for (int i = x; tab[i][y].toString()=="-"&&i>=0; i--) { 
                n++;   
             }
             return n;
         }
         public int buscaDiagonalPrincipalDireita(int x,int y){
             int n=0;
-            for (int i = x; tab[x][y].toString()=="-"||i==tab.length||i==0; i++) { 
-               n++;   
+            for (int i = x; tab[x][y].toString()=="-"&&i<=tab.length-1; i++) { 
+                x++;
+                y++;
+                n++;   
             }
             return n;
         }
         public int buscacoDiagonalPrincipalEsquerda(int x,int y){
             int n=0;
-            for (int i = x; tab[x][i].toString()=="-"||i==0; i++) { 
+            for (int i = x; tab[x][y].toString()=="-"&&i>=0; i--) { 
+               x--;
+               y--;
                n++;   
             }
             return n;
@@ -92,10 +96,16 @@ public class Jogo extends Tabuleiro implements Jogar{
            
                  System.out.println("");
            
+                 System.out.println("Cima->  "+buscaColunaAcima(x, y));
+                 System.out.println("");
                  System.out.println("Baixo->  "+buscaColunaAbaixo(x, y));
-             System.out.println("");
+                 System.out.println("");
+                 System.out.println("DiagPrinBaixo->  "+buscaDiagonalPrincipalDireita(x, y));
+                 System.out.println("");
+                 System.out.println("DiagPrinCima->  "+buscacoDiagonalPrincipalEsquerda(x, y));
+                 System.out.println("");
+                 
         }
-  
     }
     
     
