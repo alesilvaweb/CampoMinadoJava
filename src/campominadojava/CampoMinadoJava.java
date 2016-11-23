@@ -23,7 +23,11 @@ public class CampoMinadoJava {
         j.insereNovoTabuleiro();
         j.imprimeTabuleiro();
         j.novajogada(2, 2);
-         j.imprimeTabuleiro();
+        j.imprimeTabuleiro();
+        
+        
+        
+        
     }
     
 }

@@ -51,21 +51,21 @@ public class Jogo extends Tabuleiro implements Jogar{
         }
         public int buscaColunaAbaixo(int x,int y){
             int n=0;
-            for (int i = x; tab[i][y].toString()=="-"&&i<=tab.length-1; i++) { 
+            for (int i = x; tab[i][y].toString()=="-"&&i<tab.length-1; i++) { 
                n++;   
             }
             return n;
         }
         public int buscaColunaAcima(int x,int y){
             int n=0;
-            for (int i = x; tab[i][y].toString()=="-"&&i>=0; i--) { 
+            for (int i = x; tab[i][y].toString()=="-"&&i>0; i--) { 
                n++;   
             }
             return n;
         }
         public int buscaDiagonalPrincipalDireita(int x,int y){
             int n=0;
-            for (int i = x; tab[x][y].toString()=="-"&&i<=tab.length-1; i++) { 
+            for (int i = x; tab[x][y].toString()=="-"&&i<tab.length-1; i++) { 
                 x++;
                 y++;
                 n++;   
@@ -74,7 +74,7 @@ public class Jogo extends Tabuleiro implements Jogar{
         }
         public int buscacoDiagonalPrincipalEsquerda(int x,int y){
             int n=0;
-            for (int i = x; tab[x][y].toString()=="-"&&i>=0; i--) { 
+            for (int i = x; tab[x][y].toString()=="-"&&i>0; i--) { 
                x--;
                y--;
                n++;   
