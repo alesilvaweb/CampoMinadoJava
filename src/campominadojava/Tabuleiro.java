@@ -98,14 +98,19 @@ public class Tabuleiro{
     }
     public void imprimeTabuleiro(){
         for (int i = 0; i < tab.length; i++) {
+            Celula[] celulas = tab[i];
+             System.out.print(" C-"+i+" ");
+        }
+        System.out.print("#####");
+        for (int i = 0; i < tab.length; i++) {
+           
             for (int j = 0; j < tab.length; j++) {
                 if(j==0){
                     System.out.println("");
                 }
-                System.out.print(" ["+tab[i][j]+"] ");
-                
+                System.out.print(" ["+tab[i][j]+"] "); 
             }
-            
+            System.out.print("|L-"+i+"|");
         }
     }
 

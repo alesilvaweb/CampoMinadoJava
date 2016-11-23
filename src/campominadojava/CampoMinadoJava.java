@@ -26,6 +26,9 @@ public class CampoMinadoJava {
         j.imprimeTabuleiro();
         
         
+        System.out.println("");
+        
+        
         
         
     }
