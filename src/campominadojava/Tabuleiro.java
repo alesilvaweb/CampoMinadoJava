@@ -101,7 +101,7 @@ public class Tabuleiro{
             Celula[] celulas = tab[i];
              System.out.print(" C-"+i+" ");
         }
-        System.out.print("#####");
+        System.out.print("=====");
         for (int i = 0; i < tab.length; i++) {
            
             for (int j = 0; j < tab.length; j++) {

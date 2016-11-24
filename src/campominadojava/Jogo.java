@@ -19,15 +19,17 @@ public class Jogo extends Tabuleiro implements Jogar{
     @Override
     public void novajogada(int x, int y) {
          System.out.println("");
-          if(tab[x][y].toString()=="L"){
+          if(tab[x][y].toString()=="L"){ 
+              System.out.println("");
               System.out.println("Você pisou em uma bomba leve");
               setVida(getVida()-1);
           }else
               if(tab[x][y].toString()=="P"){
-                  System.out.println("");
+                   System.out.println("");
                    System.out.println("Você pisou em uma bomba pesada");
                    setVida(0);
               }else{
+                    System.out.println("");
                     System.out.println("Você pisou em um campo vazio");
                     buscarVizinhos(x,y);
               }
@@ -36,14 +38,16 @@ public class Jogo extends Tabuleiro implements Jogar{
         }
         public int buscaLinhaesquerda(int x,int y){
             int n=0;
-            
             for (int i = y;i>=0; i--){ 
-                System.out.println(tab[x][i].toString());
                 if(tab[x][i].toString()=="-"){
-                    System.out.println(tab[x][i].toString()); 
                      n++; 
-                };
-                
+                }else
+                    if(tab[x][i].toString()=="P"){
+                        i=0;
+                    }else
+                        if(tab[x][i].toString()=="L"){
+                            i=0;
+                        };
             }
             return n;
         }
@@ -52,52 +56,116 @@ public class Jogo extends Tabuleiro implements Jogar{
             int n=0;
             
                for (int i = y; i<tab.length; i++) { 
-                   System.out.println(i);
                if(tab[x][i].toString()=="-"){
                      n++; 
-                }; 
-            
+                }else
+                    if(tab[x][i].toString()=="P"){
+                        i=tab.length;
+                    }else
+                        if(tab[x][i].toString()=="L"){
+                            i=tab.length;
+                        }; 
             }
             return n;
         }
         public int buscaColunaAcima(int x,int y){
             int n=0;
-            for (int i=x;i>=0; i--) { 
-                 System.out.println(i);
+            for (int i=x;i>=0; i--) {   
                 if(tab[i][y].toString()=="-"){
                      n++;
-                };   
+                }else
+                    if(tab[i][y].toString()=="P"){
+                        i=0;
+                    }else
+                        if(tab[i][y].toString()=="L"){
+                            i=0;
+                        };   
             }
             return n;
         }
         public int buscaColunaAbaixo(int x,int y){
             int n=0;
              for (int i = x;i<tab.length; i++) { 
-                  System.out.println(i);
                 if(tab[i][y].toString()=="-"){
                      n++;
-                };   
+                }else
+                    if(tab[i][y].toString()=="P"){
+                        i=tab.length;
+                    }else
+                        if(tab[i][y].toString()=="L"){
+                            i=tab.length;
+                        };   
             }
             return n;
         }
-//        public int buscaDiagonalPrincipalDireita(int x,int y){
-//            int n=0;
-//            for (int i = x; tab[x][y].toString()=="-"&&i<tab.length-1; i++) { 
-//                x++;
-//                y++;
-//                n++;   
-//            }
-//            return n;
-//        }
-//        public int buscacoDiagonalPrincipalEsquerda(int x,int y){
-//            int n=0;
-//            for (int i = x; tab[x][y].toString()=="-"&&i>0; i--) { 
-//               x--;
-//               y--;
-//               n++;   
-//            }
-//            return n;
-//        }
+        public int buscaDiagonalPrincipalDireita(int x,int y){
+            int n=0;
+            for (int i = x, j=y;i<tab.length&&j<tab.length;j++, i++) { 
+                if(tab[i][j].toString()=="-"){
+                     n++;
+                }else
+                    if(tab[i][j].toString()=="P"){
+                        i=tab.length;
+                        j=tab.length;
+                    }else
+                        if(tab[i][j].toString()=="L"){
+                            i=tab.length;
+                            j=tab.length;
+                        };     
+            }
+            return n;
+        }
+        public int buscaDiagonalPrincipalEsquerda(int x,int y){
+            int n=0;
+           for (int i=x, j=y;i>=0&&j>=0;j--, i--) { 
+                if(tab[i][j].toString()=="-"){
+                     n++;
+                }else
+                    if(tab[i][j].toString()=="P"){
+                        i=0;
+                        j=0;
+                    }else
+                        if(tab[i][j].toString()=="L"){
+                            i=0;
+                            j=0;
+                        }; 
+           }        
+            return n;
+        }
+        public int buscaDiagonalSecundariaEsquerda(int x,int y){
+            int n=0;
+           for (int i=x, j=y;i>=0&&j>=0;j++, i--) { 
+                if(tab[i][j].toString()=="-"){
+                     n++;
+                }else
+                    if(tab[i][j].toString()=="P"){
+                        i=0;
+                        j=tab.length;
+                    }else
+                        if(tab[i][j].toString()=="L"){
+                            i=0;
+                            j=tab.length;
+                        }; 
+           }        
+            return n;
+        }
+        public int buscaDiagonalSecundariaDireita(int x,int y){
+            int n=0;
+           for (int i=x, j=y;i>=0&&j>=0;j--, i++) { 
+                if(tab[i][j].toString()=="-"){
+                     n++;
+                }else
+                    if(tab[i][j].toString()=="P"){
+                        i=tab.length;
+                        j=0;
+                    }else
+                        if(tab[i][j].toString()=="L"){
+                            i=tab.length;
+                            j=0;
+                        }; 
+           }        
+            return n;
+        }
 
         private void buscarVizinhos(int x, int y) {
           
@@ -110,10 +178,14 @@ public class Jogo extends Tabuleiro implements Jogar{
                  System.out.println("----------------------------------");
                  System.out.println("Baixo->  "+buscaColunaAbaixo(x, y));
                  System.out.println("----------------------------------");
-//                 System.out.println("DiagPrinBaixo->  "+buscaDiagonalPrincipalDireita(x, y));
-//                 System.out.println("");
-//                 System.out.println("DiagPrinCima->  "+buscacoDiagonalPrincipalEsquerda(x, y));
-//                 System.out.println("");
+                 System.out.println("DiagPrinBaixo->  "+buscaDiagonalPrincipalDireita(x, y));
+                 System.out.println("----------------------------------");
+                 System.out.println("DiagPrinCima->  "+buscaDiagonalPrincipalEsquerda(x, y));
+                 System.out.println("----------------------------------");
+                 System.out.println("DiagSecCima->  "+buscaDiagonalSecundariaEsquerda(x, y));
+                 System.out.println("----------------------------------");
+                 System.out.println("DiagSecCima->  "+buscaDiagonalSecundariaDireita(x, y));
+                 System.out.println("----------------------------------");
                  
         }
     }
